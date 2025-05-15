@@ -8,6 +8,7 @@ import HospitalManagementWeb.resposistory.PatientReposistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -61,6 +62,9 @@ public class PatientService {
             response.setStatuscode(500);
         }
         return response;
+    }
+    public List<PatientEntity> getallpatient(){
+        return  patientRepository.findAll();
     }
 
 }

@@ -5,6 +5,9 @@ import HospitalManagementWeb.entity.DoctorEntity;
 import HospitalManagementWeb.resposistory.DoctorReposistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.stylesheets.LinkStyle;
+
+import java.util.List;
 
 @Service
 public class DoctorService {
@@ -45,6 +48,10 @@ public class DoctorService {
         }
         return response;
 
+    }
+
+    public List<DoctorEntity> getAllDoctors(){
+        return doctorReposistory.findAll();
     }
 
 }

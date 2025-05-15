@@ -4,7 +4,9 @@ package HospitalManagementWeb.controller;
 import HospitalManagementWeb.Dto.Drreqres;
 import HospitalManagementWeb.Dto.Patientreqres;
 import HospitalManagementWeb.Dto.ReqRes;
+import HospitalManagementWeb.entity.DoctorEntity;
 import HospitalManagementWeb.entity.ManagementEntity;
+import HospitalManagementWeb.entity.PatientEntity;
 import HospitalManagementWeb.service.DoctorService;
 import HospitalManagementWeb.service.ManagementService;
 import HospitalManagementWeb.service.PatientService;
@@ -48,6 +50,14 @@ public class MainController {
     @PostMapping("/addpatientdetails")
     public Patientreqres adddpatientdetails(@RequestBody Patientreqres patientreqres){
         return patientService.savePatient(patientreqres);
+    }
+    @GetMapping("/getDoctors")
+    public List<DoctorEntity> getalldoctors(){
+        return doctorService.getAllDoctors();
+    }
+    @GetMapping("/getAllpatients")
+    public List<PatientEntity> getallpatients(){
+        return patientService.getallpatient();
     }
 
 

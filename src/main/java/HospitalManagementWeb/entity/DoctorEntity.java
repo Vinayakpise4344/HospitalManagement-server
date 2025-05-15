@@ -85,7 +85,7 @@ public class DoctorEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Dr_ID;
 
-    @Column(name = "doctor_id")
+    @Column(name = "doctor_id",unique = true)
     private Long doctor_id;
 
     private String Name;

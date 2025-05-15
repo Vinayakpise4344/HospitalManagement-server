@@ -43,6 +43,7 @@ public class SecurityConfig {
 
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(request -> request.requestMatchers("/auth/**","/public/**").permitAll()
+                        .requestMatchers("/auth/**", "/public/**", "/getDoctors","/getAllpatients", "/adddoctordetails").permitAll()
                         .requestMatchers("/management/**").hasAnyAuthority("Management")
                         .requestMatchers("/doctor/**").hasAnyAuthority("Doctor")
                         .requestMatchers("/managementdoctor/**").hasAnyAuthority("Management","Doctor")
