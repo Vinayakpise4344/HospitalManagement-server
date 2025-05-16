@@ -43,10 +43,10 @@ public class SecurityConfig {
 
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(request -> request.requestMatchers("/auth/**","/public/**").permitAll()
-                        .requestMatchers("/auth/**", "/public/**", "/api/getDoctors", "/api/getAllpatients", "/api/adddoctordetails").permitAll()
-                        .requestMatchers("/management/**").hasAnyAuthority("Management")
-                        .requestMatchers("/doctor/**").hasAnyAuthority("Doctor")
-                        .requestMatchers("/managementdoctor/**").hasAnyAuthority("Management","Doctor")
+                        .requestMatchers("/api/auth/**", "/public/**", "/api/getDoctors", "/api/getAllpatients", "/api/adddoctordetails").permitAll()
+                        .requestMatchers("/api/management/**").hasAnyAuthority("Management")
+                        .requestMatchers("/api/doctor/**").hasAnyAuthority("Doctor")
+                        .requestMatchers("/api/managementdoctor/**").hasAnyAuthority("Management","Doctor")
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(  authenticationProvider()).addFilterBefore(
