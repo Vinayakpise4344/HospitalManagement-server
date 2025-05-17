@@ -72,7 +72,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(List.of("http://localhost:5173")); // ✅ Use specific origin
+        configuration.setAllowedOriginPatterns(List.of(
+                "http://localhost:5173",
+                "https://hospitalmanagmentsystemm.vercel.app"
+        )); // ✅ Use specific origin
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true); // ✅ Important for withCredentials:true in Axios
